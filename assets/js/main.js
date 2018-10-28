@@ -1,7 +1,7 @@
 var iota = new IOTA({'provider': 'https://nodes.testnet.iota.org:443'})
 
 function getIpData(cb) {
-    $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+    $.getJSON('https://cors.io/?http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
         cb(JSON.stringify(data, null, 2));
     });
 }
