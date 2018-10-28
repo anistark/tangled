@@ -1,0 +1,27 @@
+{
+  "name": "tangled",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@iota/core": "^1.0.0-beta.5",
+    "iota.lib.js": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anistark/tangled.git"
+  },
+  "author": "Kumar Anirudha <anirudhastark@yahoo.com> (http://anirudha.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anistark/tangled/issues"
+  },
+  "homepage": "https://github.com/anistark/tangled#readme"
+}
