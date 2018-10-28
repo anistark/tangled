@@ -17,7 +17,7 @@ function getBundleData(bundles, cb) {
                 console.log('success2:', success2);
                 message = success2[0].signatureMessageFragment
                 message = message.split("9").join("")
-                $('#message-trytes').html('Message Trytes: '+message)
+                // $('#message-trytes').html('Message Trytes: '+message)
                 var rawMessage = iota.utils.fromTrytes(message)
                 bundlesData.push(JSON.parse(rawMessage))
                 if(bundles.length == bundlesData.length) {
@@ -30,6 +30,7 @@ function getBundleData(bundles, cb) {
 
 $('#push-to-tangle').click(function() {
     console.log('-- pushing to tangle --', 'seed:', $('#seed').val(), '| comment:', $('#comment').val());
+    $('#latest-bundle').html('')
     var messageData = {
         'timestamp': moment().format(),
         'comment': $('#comment').val()
@@ -69,7 +70,9 @@ $('#push-to-tangle').click(function() {
 })
 
 $('#fetch-from-tangle').click(function () {
-    console.log('-- fetching from tangle --', 'bundle-hash:', $('#retreive-address').val());
+    console.log('-- fetching from tangle --', 'retreive-address:', $('#retreive-address').val());
+    $('#message-trytes').html('')
+    $('#tangle-data').html('')
     var searchVarsBundle = {
         // 'bundles': [bundle]
         'addresses': [$('#retreive-address').val()]
@@ -82,6 +85,37 @@ $('#fetch-from-tangle').click(function () {
             // console.log('success:', success);
             getBundleData(success, function (tangleData) {
                 $('#tangle-data').html('Message: '+JSON.stringify(tangleData, null, 2))
+            })
+        }
+    })
+})
+
+$('#fetch-from-tangle-by-bundle').click(function () {
+    console.log('-- fetching from tangle by bundle --', 'bundle-hash:', $('#bundle-hash').val());
+    $('#message-trytes-by-bundle').html('')
+    $('#tangle-data-by-bundle').html('')
+    var bundles = new Set();
+
+    var searchVarsBundle = {
+        'bundles': [$('#bundle-hash').val()]
+    }
+    var message = ''
+    iota.api.findTransactions(searchVarsBundle, function(error, success) {
+        if (error) {
+            console.log('error:', error)
+        } else {
+            // console.log('success:', success);
+            iota.api.getBundle(success[0], function(error, success2) {
+                if (error) {
+                    console.log('error:', error)
+                } else {
+                    console.log('success2:', success2);
+                    message = success2[0].signatureMessageFragment
+                    message = message.split("9").join("")
+                    $('#message-trytes-by-bundle').html('Message Trytes: '+message)
+                    var rawMessage = iota.utils.fromTrytes(message)
+                    $('#tangle-data-by-bundle').html('Message: '+rawMessage)
+                }
             })
         }
     })

@@ -20,7 +20,6 @@
                 </ul>
             </nav>
         </div>
-        <br/>
         <div id="feedback-form">
             <h2 class="header">Log data to Tangle</h2>
             <div>
@@ -31,13 +30,19 @@
                 <span id="latest-bundle" class="message-box"></span>
             </div>
         </div>
-        <br/>
         <div id="feedback-form">
-            <h2 class="header">Get Tangle Data</h2>
+            <h2 class="header">Get Tangle Data (by address)</h2>
             <input type="text" name="retreive-address" id="retreive-address" placeholder="Address" value="TVJFHZKPBGPRHDVOHI9RPHLUQHOBPPTGPRW9JAOYXHF9KPRUYRBVMMCWFYFGNKWIPEZPMNFJKBNNKDTNY9XXRXCLYB" />
             <button id="fetch-from-tangle" type="button">Fetch from Tangle</button>
             <span id="message-trytes" class="message-box"></span>
             <span id="tangle-data" class="message-box"></span>
+        </div>
+        <div id="feedback-form">
+            <h2 class="header">Get Tangle Data (by bundle hash)</h2>
+            <input type="text" name="bundle-hash" id="bundle-hash" placeholder="Bundle Hash" value="EQNFWB9BLVBGXAAZJWOBBAUKHHZUFZFTEDDEGZANSHDWAHDYJX9RPZ9TNXDBINTGNBWOICLSIDEF99TEZ" />
+            <button id="fetch-from-tangle-by-bundle" type="button">Fetch from Tangle</button>
+            <span id="message-trytes-by-bundle" class="message-box"></span>
+            <span id="tangle-data-by-bundle" class="message-box"></span>
         </div>
 
     </div>
