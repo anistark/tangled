@@ -55,3 +55,10 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3', GradientType=1);
     /* IE6-9 */
 }
+
+.message-box {
+    width: 100%;
+    overflow: scroll;
+    display: block;
+    margin-bottom: 10px;
+}

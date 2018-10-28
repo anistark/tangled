@@ -1,6 +1,5 @@
 var iota = new IOTA({
-    'host': 'https://nodes.testnet.iota.org',
-    'port': 443
+    'provider': 'https://nodes.testnet.iota.org:443'
 })
 
 $('#to-trytes-btn').click(function() {

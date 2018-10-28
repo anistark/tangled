@@ -15,33 +15,37 @@
             <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.html">Tangled<span class="sr-only">(current)</span></a></li>
-                    <li class="active"><a href="tools.html">Tools</a></li>
+                    <li><a href="tools.html">Tools</a></li>
                     <!-- <li><a href="/about">About us</a></li> -->
                 </ul>
             </nav>
         </div>
         <br/>
-        <!-- <div id="feedback-form">
-            <h2 class="header">Push your comments to Tangle</h2>
+        <div id="feedback-form">
+            <h2 class="header">Log data to Tangle</h2>
             <div>
-                <input type="text" name="seed" id="seed" placeholder="SEED" value="TUULMYMFZUFKWBKXUHWVDZHADXLTFQAGYOLERFFPTMRNVBYTQWMQPZIURAZHIGZSUVQVLHPFSLF9DOKLQ" />
-                <input type="text" name="comment" id="comment" placeholder="Comment" value="data test" />
-                <button id="push-data" type="button">Push to Tangle</button>
+                <input type="text" name="seed" id="seed" placeholder="SEED" value="MFLVEQNVKLDWEYQQOMIZH9RQXJQMWGSUHTRRWESTCWCO9WUVRTTLETBLSBKIJILJBHKXCDAJPURSZ9I9Z" />
+                <input type="text" name="address" id="address" placeholder="address" value="TVJFHZKPBGPRHDVOHI9RPHLUQHOBPPTGPRW9JAOYXHF9KPRUYRBVMMCWFYFGNKWIPEZPMNFJKBNNKDTNY9XXRXCLYB" />
+                <input type="text" name="comment" id="comment" placeholder="Comment" value="comment 1" />
+                <button id="push-to-tangle" type="button">Push to Tangle</button>
+                <span id="latest-bundle" class="message-box"></span>
             </div>
-        </div> -->
+        </div>
         <br/>
-        <!-- <div id="feedback-form">
+        <div id="feedback-form">
             <h2 class="header">Get Tangle Data</h2>
-            <input type="text" name="rootHash" id="rootHash" placeholder="ROOT HASH" value="HSQQMDSIKFLUIHAIOKO9CYRYPGASGETJFIYOTOBHQBVRWZYXERQSTUIISLHZFHFOTJXVQTV9UWYPEWDXH" />
-            <input type="text" name="fetch-seed" id="fetch-seed" placeholder="SEED" value="TUULMYMFZUFKWBKXUHWVDZHADXLTFQAGYOLERFFPTMRNVBYTQWMQPZIURAZHIGZSUVQVLHPFSLF9DOKLQ" />
-            <button id="fetch-data" type="button">Fetch from Tangle</button>
-            <span id="mam-data"></span>
-        </div> -->
+            <input type="text" name="bundle-hash" id="bundle-hash" placeholder="Bundle Hash" value="LLUCNBSWOGQLZEQKLIZBEEBFUZPIWPHFTDOHOJRHFEEWIKUCVUSB9OSECGVGLNSW9ZSWTAGRYYDQZDCGD" />
+            <button id="fetch-from-tangle" type="button">Fetch from Tangle</button>
+            <span id="message-trytes" class="message-box"></span>
+            <span id="tangle-data" class="message-box"></span>
+        </div>
 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+    <script src="./assets/lib/iota.js"></script>
+    <script src="./assets/lib/moment-with-locales.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 

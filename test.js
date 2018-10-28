@@ -5,12 +5,12 @@ const IOTA = require('iota.lib.js')
 const iota = new IOTA({ provider: 'https://nodes.testnet.iota.org:443' })
 
 var messageData = {
-    'coordinates': '72.0826:21.4233',
+    'coordinate': '72.0826:21.4233',
     'timestamp': '2018-12-22T11:00:00+00:00',
-    'otherData': 'Asgard'
+    'comment': 'Asgard'
 }
 
-var rawMessage = 'Hello Jan, this is your first transaction!'
+// var rawMessage = 'Hello Jan, this is your first transaction!'
 
 var rawMessage = JSON.stringify(messageData)
 
