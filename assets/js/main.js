@@ -30,6 +30,7 @@ function getBundleData(bundles, cb) {
 
 $('#push-to-tangle').click(function() {
     console.log('-- pushing to tangle --', 'seed:', $('#seed').val(), '| comment:', $('#comment').val());
+    $('#loading-wrap').show()
     $('#latest-bundle').html('')
     var messageData = {
         'timestamp': moment().format(),
@@ -64,6 +65,7 @@ $('#push-to-tangle').click(function() {
                 console.log(error)
             } else {
                 $('#latest-bundle').html(success[0].bundle)
+                $('#loading-wrap').hide()
             }
         });
     })
@@ -71,6 +73,7 @@ $('#push-to-tangle').click(function() {
 
 $('#fetch-from-tangle').click(function () {
     console.log('-- fetching from tangle --', 'retreive-address:', $('#retreive-address').val());
+    $('#loading-wrap').show()
     $('#message-trytes').html('')
     $('#tangle-data').html('')
     var searchVarsBundle = {
@@ -85,6 +88,7 @@ $('#fetch-from-tangle').click(function () {
             // console.log('success:', success);
             getBundleData(success, function (tangleData) {
                 $('#tangle-data').html('Message: '+JSON.stringify(tangleData, null, 2))
+                $('#loading-wrap').hide()
             })
         }
     })
@@ -92,6 +96,7 @@ $('#fetch-from-tangle').click(function () {
 
 $('#fetch-from-tangle-by-bundle').click(function () {
     console.log('-- fetching from tangle by bundle --', 'bundle-hash:', $('#bundle-hash').val());
+    $('#loading-wrap').show()
     $('#message-trytes-by-bundle').html('')
     $('#tangle-data-by-bundle').html('')
     var bundles = new Set();
@@ -115,8 +120,13 @@ $('#fetch-from-tangle-by-bundle').click(function () {
                     $('#message-trytes-by-bundle').html('Message Trytes: '+message)
                     var rawMessage = iota.utils.fromTrytes(message)
                     $('#tangle-data-by-bundle').html('Message: '+rawMessage)
+                    $('#loading-wrap').hide()
                 }
             })
         }
     })
 })
+
+$(function() {
+    $('#loading-wrap').hide()
+});
